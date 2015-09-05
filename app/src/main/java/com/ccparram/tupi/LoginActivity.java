@@ -1,10 +1,13 @@
 package com.ccparram.tupi;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.ccparram.tupi.navigation.Navigation;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 
@@ -60,6 +63,11 @@ public class LoginActivity extends AppCompatActivity {
 
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
+    }
+
+    public void Siguiente(View v){
+        Intent intent = new Intent(this, Navigation.class);
+        startActivity(intent);
     }
 
     }

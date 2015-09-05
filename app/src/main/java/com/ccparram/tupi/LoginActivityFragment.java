@@ -24,4 +24,7 @@ public class LoginActivityFragment extends Fragment {
 
         return view;
     }
+
+
+
 }

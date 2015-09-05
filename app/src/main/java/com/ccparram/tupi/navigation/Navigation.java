@@ -2,7 +2,7 @@ package com.ccparram.tupi.navigation;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -66,13 +66,8 @@ public class Navigation extends AppCompatActivity{
         getSupportActionBar().setHomeButtonEnabled(true);
 
         // Crear ActionBarDrawerToggle para la apertura y cierre
-        drawerToggle = new ActionBarDrawerToggle(
-                this,
-                drawerLayout,
-                R.drawable.ic_drawer,
-                R.string.drawer_open,
-                R.string.drawer_close
-        ) {
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.drawer_open, R.string.drawer_close)
+        {
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(itemTitle);
 

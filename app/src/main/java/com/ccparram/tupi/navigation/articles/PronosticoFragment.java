@@ -1,4 +1,4 @@
-package com.ccparram.tupi.navigation;
+package com.ccparram.tupi.navigation.articles;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,10 +10,10 @@ import android.widget.TextView;
 import com.ccparram.tupi.R;
 
 
-public class ArticleFragment extends Fragment {
+public class PronosticoFragment extends Fragment {
     public static final String ARG_ARTICLES_NUMBER = "articles_number";
 
-    public ArticleFragment() {
+    public PronosticoFragment() {
         // Constructor vacío
     }
 

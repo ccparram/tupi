@@ -6,12 +6,11 @@
     <string name="facebook_app_id">1666121893601284</string>
 
     <string-array name="Tags">
-        <item>HTML</item>
-        <item>CSS</item>
-        <item>JavaScript</item>
-        <item>Angular JS</item>
-        <item>Python</item>
-        <item>Ruby on Rails</item>
+        <item>Info Usuario</item>
+        <item>Registro</item>
+        <item>Info Contactos</item>
+        <item>Pronóstico</item>
+        <item>Extra</item>
     </string-array>
 
     <string name="drawer_open">Abrir navigation drawer</string>

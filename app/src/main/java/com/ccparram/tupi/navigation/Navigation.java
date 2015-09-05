@@ -2,10 +2,10 @@ package com.ccparram.tupi.navigation;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -16,6 +16,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.ccparram.tupi.R;
+import com.ccparram.tupi.navigation.articles.RegistroFragment;
+import com.ccparram.tupi.navigation.articles.UsuarioFragment;
 
 import java.util.ArrayList;
 
@@ -54,7 +56,6 @@ public class Navigation extends AppCompatActivity{
         items.add(new DrawerItem(tagTitles[2], R.drawable.ic_javascript));
         items.add(new DrawerItem(tagTitles[3], R.drawable.ic_angular));
         items.add(new DrawerItem(tagTitles[4], R.drawable.ic_python));
-        items.add(new DrawerItem(tagTitles[5], R.drawable.ic_ruby));
 
 
         // Relacionar el adaptador y la escucha de la lista del drawer
@@ -120,14 +121,64 @@ public class Navigation extends AppCompatActivity{
     }
 
     private void selectItem(int position) {
-        // Reemplazar el contenido del layout principal por un fragmento
-        ArticleFragment fragment = new ArticleFragment();
-        Bundle args = new Bundle();
-        args.putInt(ArticleFragment.ARG_ARTICLES_NUMBER, position);
-        fragment.setArguments(args);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        final String ARG_ARTICLES_NUMBER = "articles_number";
+        Bundle args = new Bundle();
+
+        switch (position){
+            case 0:
+                // Reemplazar el contenido del layout principal por un fragmento
+                UsuarioFragment fragment0 = new UsuarioFragment();
+
+                args.putInt(ARG_ARTICLES_NUMBER, position);
+                fragment0.setArguments(args);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment0).commit();
+
+                break;
+            case 1:
+                RegistroFragment fragment1 = new RegistroFragment();
+
+                args.putInt(ARG_ARTICLES_NUMBER, position);
+                fragment1.setArguments(args);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment1).commit();
+
+                break;
+            case 2:
+                RegistroFragment fragment2 = new RegistroFragment();
+
+                args.putInt(ARG_ARTICLES_NUMBER, position);
+                fragment2.setArguments(args);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment2).commit();
+
+                break;
+            case 3:
+                RegistroFragment fragment3 = new RegistroFragment();
+
+                args.putInt(ARG_ARTICLES_NUMBER, position);
+                fragment3.setArguments(args);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment3).commit();
+
+                break;
+            case 4:
+                RegistroFragment fragment4 = new RegistroFragment();
+
+                args.putInt(ARG_ARTICLES_NUMBER, position);
+                fragment4.setArguments(args);
+
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment4).commit();
+
+                break;
+
+        }
+
+
+
 
         // Se actualiza el item seleccionado y el título, después de cerrar el drawer
         drawerList.setItemChecked(position, true);

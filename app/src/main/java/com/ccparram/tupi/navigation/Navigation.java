@@ -16,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.ccparram.tupi.R;
+import com.ccparram.tupi.navigation.articles.ArticleFragment;
+import com.ccparram.tupi.navigation.articles.ContactosFragment;
+import com.ccparram.tupi.navigation.articles.PronosticoFragment;
 import com.ccparram.tupi.navigation.articles.RegistroFragment;
 import com.ccparram.tupi.navigation.articles.UsuarioFragment;
 
@@ -148,7 +151,7 @@ public class Navigation extends AppCompatActivity{
 
                 break;
             case 2:
-                RegistroFragment fragment2 = new RegistroFragment();
+                ContactosFragment fragment2 = new ContactosFragment();
 
                 args.putInt(ARG_ARTICLES_NUMBER, position);
                 fragment2.setArguments(args);
@@ -157,7 +160,7 @@ public class Navigation extends AppCompatActivity{
 
                 break;
             case 3:
-                RegistroFragment fragment3 = new RegistroFragment();
+                PronosticoFragment fragment3 = new PronosticoFragment();
 
                 args.putInt(ARG_ARTICLES_NUMBER, position);
                 fragment3.setArguments(args);
@@ -166,7 +169,7 @@ public class Navigation extends AppCompatActivity{
 
                 break;
             case 4:
-                RegistroFragment fragment4 = new RegistroFragment();
+                ArticleFragment fragment4 = new ArticleFragment();
 
                 args.putInt(ARG_ARTICLES_NUMBER, position);
                 fragment4.setArguments(args);

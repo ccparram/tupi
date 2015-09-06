@@ -1,21 +1,121 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_margin="@dimen/activity_horizontal_margin">
 
     <TextView
-        android:id="@+id/headline"
+        android:id="@+id/cabecera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Pronostico del clima"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Pronóstico para hoy°"
+        android:textSize="30sp"
+        android:layout_gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/headline"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/article" />
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/temperaturaHoy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="160sp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="0dp"/>
+
+            <TextView
+            android:id="@+id/min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/min"
+            android:textSize="20sp"
+                android:layout_below="@+id/temperaturaHoy"
+                android:layout_alignLeft="@+id/temperaturaHoy"
+                android:layout_alignStart="@+id/temperaturaHoy" />
+
+            <TextView
+                android:id="@+id/max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max"
+                android:textSize="20sp"
+                android:layout_below="@+id/min"
+                android:layout_alignLeft="@+id/min"
+                android:layout_alignStart="@+id/min" />
+
+
+
+            <TextView
+                android:id="@+id/grado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/grado"
+                android:textSize="40sp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/temperaturaHoy"
+                android:layout_toEndOf="@+id/temperaturaHoy"
+                android:layout_marginTop="25dp" />
+
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/iconHoy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_html"
+                android:layout_marginTop="40dp"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <TextView
+            android:id="@+id/pronosticoMañana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pronóstico para mañana"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_html"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="30dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

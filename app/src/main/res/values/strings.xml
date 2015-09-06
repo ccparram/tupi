@@ -17,4 +17,9 @@
     <string name="drawer_close">Cerrar navigation drawer</string>
     <string name="headlines">Encabezados de</string>
 
+
+    <string name="grado">C°</string>
+    <string name="min">Min: </string>
+    <string name="max">Max: </string>
+
 </resources>

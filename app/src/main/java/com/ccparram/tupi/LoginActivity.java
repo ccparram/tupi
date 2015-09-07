@@ -53,13 +53,13 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(LoginResult loginResult) {
-                info.setText(
+/*                info.setText(
                         "User ID: "
                                 + loginResult.getAccessToken().getUserId()
                                 + "\n" +
                                 "Auth Token: "
                                 + loginResult.getAccessToken().getToken()
-                );
+                );*/
 
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),

@@ -23,4 +23,10 @@
     <string name="min">Min:</string>
     <string name="max">Max:</string>
 
+    <string name="nombre"><b>Nombre:</b> \t\t\t\t</string>
+    <string name="email"><b>Email:</b> \t\t\t\t\t</string>
+    <string name="birthday"><b>Nacimiento:</b> \t\t</string>
+
+    <string name="informacion">Información</string>
+
 </resources>

@@ -27,6 +27,8 @@ import java.util.ArrayList;
 
 public class Navigation extends AppCompatActivity{
 
+    private final String TAG = this.getClass().getName();
+
     /*
      DECLARACIONES
      */
@@ -132,10 +134,13 @@ public class Navigation extends AppCompatActivity{
 
         switch (position){
             case 0:
+                String strJsonGraph = getIntent ().getExtras().getString("strJsonGraph");
+
                 // Reemplazar el contenido del layout principal por un fragmento
                 UsuarioFragment fragment0 = new UsuarioFragment();
 
                 args.putInt(ARG_ARTICLES_NUMBER, position);
+                args.putString("strJsonGraph", strJsonGraph);
                 fragment0.setArguments(args);
 
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment0).commit();

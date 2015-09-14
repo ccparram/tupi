@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.ccparram.tupi.R;
 
@@ -25,8 +24,6 @@ public class RegistroFragment extends Fragment {
         String article = getResources().getStringArray(R.array.Tags)[i];
 
         getActivity().setTitle(article);
-        TextView headline = (TextView) rootView.findViewById(R.id.headline);
-        headline.append(" " + article);
 
         return rootView;
     }

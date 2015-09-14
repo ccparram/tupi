@@ -28,4 +28,14 @@
 
     <string name="informacion">Información</string>
 
+
+    <!--    Fragment Registro -->
+
+    <string name="contact_new">Nuevo contacto</string>
+    <string name="contact_name">Nombre contacto</string>
+    <string name="phone_number">Número de teléfono</string>
+    <string name="email_hint">Email</string>
+    <string name="address">Dirección</string>
+    <string name="add_contact">Agregar Contacto</string>
+
 </resources>

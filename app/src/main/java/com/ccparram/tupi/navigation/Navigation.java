@@ -56,11 +56,10 @@ public class Navigation extends AppCompatActivity{
 
         //Crear elementos de la lista
         ArrayList<DrawerItem> items = new ArrayList<DrawerItem>();
-        items.add(new DrawerItem(tagTitles[0], R.drawable.ic_html));
-        items.add(new DrawerItem(tagTitles[1], R.drawable.ic_css));
-        items.add(new DrawerItem(tagTitles[2], R.drawable.ic_javascript));
-        items.add(new DrawerItem(tagTitles[3], R.drawable.ic_angular));
-        items.add(new DrawerItem(tagTitles[4], R.drawable.ic_python));
+        items.add(new DrawerItem(tagTitles[0], R.drawable.ic_user));
+        items.add(new DrawerItem(tagTitles[1], R.drawable.ic_add_contact));
+        items.add(new DrawerItem(tagTitles[2], R.drawable.ic_contacts));
+        items.add(new DrawerItem(tagTitles[3], R.drawable.ic_weather));
 
 
         // Relacionar el adaptador y la escucha de la lista del drawer

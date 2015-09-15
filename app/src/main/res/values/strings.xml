@@ -38,4 +38,9 @@
     <string name="address">Dirección</string>
     <string name="add_contact">Agregar Contacto</string>
 
+
+
+    <!--    Mensajes Base de Datos -->
+    <string name="insert_ok">Contacto agregado</string>
+
 </resources>

@@ -53,6 +53,7 @@ public class UsuarioFragment extends Fragment {
 
         new setInfoUserTask().execute(strJsonGraph);
 
+
         Log.e(TAG, "usuario: " + strJsonGraph);
 
         return rootView;

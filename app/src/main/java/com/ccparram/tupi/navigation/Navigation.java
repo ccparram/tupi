@@ -133,7 +133,7 @@ public class Navigation extends AppCompatActivity{
 
         switch (position){
             case 0:
-                String strJsonGraph = getIntent ().getExtras().getString("strJsonGraph");
+                String strJsonGraph = getIntent().getExtras().getString("strJsonGraph");
 
                 // Reemplazar el contenido del layout principal por un fragmento
                 UsuarioFragment fragment0 = new UsuarioFragment();

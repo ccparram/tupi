@@ -73,11 +73,11 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         });
+
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id,name,email,gender, birthday");
+                parameters.putString("fields", "id, name, email, gender, birthday");
                 request.setParameters(parameters);
                 request.executeAsync();
-
 
             }
 
@@ -101,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -123,7 +122,6 @@ public class LoginActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     protected void onResume() {

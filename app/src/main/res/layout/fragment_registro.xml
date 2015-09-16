@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingTop="10dp"
-        android:src="@drawable/ic_contact_cam"/>
+        android:src="@drawable/ic_contact_cam"
+        android:clickable="true" />
 
     <EditText
         android:id="@+id/nombre"

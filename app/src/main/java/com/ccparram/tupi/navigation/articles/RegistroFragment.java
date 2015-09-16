@@ -1,16 +1,26 @@
 package com.ccparram.tupi.navigation.articles;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.ccparram.tupi.R;
 import com.ccparram.tupi.utility.ContactoDataSource;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class RegistroFragment extends Fragment {
@@ -18,6 +28,7 @@ public class RegistroFragment extends Fragment {
     private final String TAG = this.getClass().getName();
     public static final String ARG_ARTICLES_NUMBER = "articles_number";
 
+    private ImageView icoFoto;
     private EditText nombre;
     private EditText telefono;
     private EditText email;
@@ -26,9 +37,11 @@ public class RegistroFragment extends Fragment {
 
     private ContactoDataSource ContactoDataSource;
 
-    public RegistroFragment() {
-        // Constructor vacío
-    }
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_TAKE_PHOTO = 1;
+    private String mCurrentPhotoPath;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +53,7 @@ public class RegistroFragment extends Fragment {
 
         ContactoDataSource = new ContactoDataSource(getContext());
 
+        icoFoto = (ImageView)rootView.findViewById(R.id.iconContact);
         nombre = (EditText)rootView.findViewById(R.id.nombre);
         telefono = (EditText)rootView.findViewById(R.id.telefono);
         email = (EditText)rootView.findViewById(R.id.email);
@@ -50,6 +64,14 @@ public class RegistroFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 agregarContacto();
+            }
+        });
+
+        icoFoto.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                dispatchTakePictureIntent();
             }
         });
 
@@ -66,12 +88,46 @@ public class RegistroFragment extends Fragment {
 
         //Crear nuevo objeto ContactoDataSource
 
-        Log.e(TAG, "Agregar Contacto");
-
-        ContactoDataSource.saveContactRow(strNombre,strTelefono,strEmail,strDireccion, "urlFotito");
-
+        ContactoDataSource.saveContactRow(strNombre, strTelefono, strEmail, strDireccion, "urlFotito");
 
     }
+
+        // Function that invokes an intent to capture a photo.
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+        //retrieves image and displays it in iconFoto
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            icoFoto.setImageBitmap(imageBitmap);
+        }
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
+    }
+
+
 
 
 }

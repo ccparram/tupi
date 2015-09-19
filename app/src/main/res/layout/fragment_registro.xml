@@ -14,12 +14,12 @@
 
     <ImageView
         android:id="@+id/iconContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="180dp"
         android:layout_gravity="center_horizontal"
         android:paddingTop="10dp"
         android:src="@drawable/ic_contact_cam"
-        android:clickable="true" />
+        android:clickable="true"/>
 
     <EditText
         android:id="@+id/nombre"
@@ -28,7 +28,7 @@
         android:inputType="textPersonName"
         android:hint="@string/contact_name"
         android:ems="10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/telefono"
@@ -37,7 +37,7 @@
         android:inputType="number"
         android:hint="@string/phone_number"
         android:ems="10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/email"
@@ -46,14 +46,14 @@
         android:inputType="textEmailAddress"
         android:hint="@string/email_hint"
         android:ems="10"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"/>
 
     <EditText
         android:id="@+id/direccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/address"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/agregar"

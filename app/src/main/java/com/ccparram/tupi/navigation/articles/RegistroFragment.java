@@ -2,7 +2,8 @@ package com.ccparram.tupi.navigation.articles;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -88,15 +89,29 @@ public class RegistroFragment extends Fragment {
 
         //Crear nuevo objeto ContactoDataSource
 
-        ContactoDataSource.saveContactRow(strNombre, strTelefono, strEmail, strDireccion, "urlFotito");
+        ContactoDataSource.saveContactRow(strNombre, strTelefono, strEmail, strDireccion, mCurrentPhotoPath);
+        limpiarFormulario();
 
     }
 
         // Function that invokes an intent to capture a photo.
+
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
         }
     }
 
@@ -104,12 +119,17 @@ public class RegistroFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            icoFoto.setImageBitmap(imageBitmap);
+            //Bundle extras = data.getExtras();
+            //Bitmap imageBitmap = (Bitmap) extras.get("data");
+
+            icoFoto.setImageBitmap(BitmapFactory.decodeFile(mCurrentPhotoPath));
+
+
+
         }
     }
 
+        // Create a file for the photo
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -123,8 +143,17 @@ public class RegistroFragment extends Fragment {
         );
 
         // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        mCurrentPhotoPath = image.getAbsolutePath();
         return image;
+    }
+
+    private void limpiarFormulario(){
+
+        icoFoto.setImageResource(R.drawable.ic_contact_cam);
+        nombre.setText("");
+        telefono.setText("");
+        email.setText("");
+        direccion.setText("");
     }
 
 

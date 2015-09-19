@@ -2,6 +2,7 @@ package com.ccparram.tupi.utility;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 import android.widget.Toast;
@@ -85,6 +86,12 @@ public class ContactoDataSource {
         Toast toast = Toast.makeText(context, R.string.insert_ok, Toast.LENGTH_SHORT);
         toast.show();
 
+    }
+
+    public Cursor getAllContactos(){
+        //Seleccionamos todas las filas de la tabla Contacto
+        return database.rawQuery(
+                "select * from " + CONTACTO_TABLE_NAME, null);
     }
 
 

@@ -36,13 +36,15 @@ public class RegistroFragment extends Fragment {
     private EditText direccion;
     private Button agregar;
 
-    private ContactoDataSource ContactoDataSource;
+    private static ContactoDataSource ContactoDataSource;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     static final int REQUEST_TAKE_PHOTO = 1;
     private String mCurrentPhotoPath;
 
-
+    public static com.ccparram.tupi.utility.ContactoDataSource getContactoDataSource() {
+        return ContactoDataSource;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

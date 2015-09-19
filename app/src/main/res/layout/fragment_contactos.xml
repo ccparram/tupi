@@ -1,21 +1,7 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/reciclador"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
-
-    <TextView
-        android:id="@+id/headline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Lista de Contactos"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/headline"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/article" />
-</RelativeLayout>
+    android:padding="3dp"
+    android:scrollbars="vertical" />

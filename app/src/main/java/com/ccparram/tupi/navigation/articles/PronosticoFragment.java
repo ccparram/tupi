@@ -175,8 +175,6 @@ public class PronosticoFragment extends Fragment {
                 }
                 pronosticoJsonStr = buffer.toString();
 
-                Log.e(TAG, " Json" + pronosticoJsonStr);
-
                 try {
                     pronosticoJson = new JSONObject(pronosticoJsonStr);
 

@@ -50,7 +50,7 @@ public class ContactoDataSource {
                     ColumnContacto.TELEFONO_CONTACTO+" "+STRING_TYPE+" not null," +
                     ColumnContacto.EMAIL_CONTACTO+" "+STRING_TYPE+" not null," +
                     ColumnContacto.DIRECCION_CONTACTO+" "+STRING_TYPE+" not null," +
-                    ColumnContacto.FOTO_CONTACTO+" "+STRING_TYPE+" not null)";
+                    ColumnContacto.FOTO_CONTACTO+" "+STRING_TYPE+")";
 
     //Scripts de inserción por defecto
     public static final String INSERT_CONTACTO_SCRIPT =

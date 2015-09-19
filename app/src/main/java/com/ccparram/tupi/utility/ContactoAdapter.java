@@ -1,5 +1,6 @@
 package com.ccparram.tupi.utility;
 
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,7 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoAdapter.Contac
 
     @Override
     public int getItemCount() {
+        if(items == null) return 0;
         return items.size();
     }
 
@@ -54,7 +56,7 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoAdapter.Contac
 
     @Override
     public void onBindViewHolder(ContactoViewHolder viewHolder, int i) {
-        //viewHolder.imagen.setImageResource(items.get(i).getImagen());
+        viewHolder.imagen.setImageBitmap(BitmapFactory.decodeFile(items.get(i).getImg()));
         viewHolder.nombre.setText(items.get(i).getNombre());
         viewHolder.telefono.setText(items.get(i).getTelefono());
         viewHolder.email.setText(items.get(i).getEmail());

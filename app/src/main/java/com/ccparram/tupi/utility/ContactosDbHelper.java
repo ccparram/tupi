@@ -3,7 +3,6 @@ package com.ccparram.tupi.utility;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * Created by camilow8 on 14/09/2015.
@@ -29,9 +28,8 @@ public class ContactosDbHelper extends SQLiteOpenHelper {
 
 
         //Insertar registros iniciales
-        db.execSQL(ContactoDataSource.INSERT_CONTACTO_SCRIPT);
+        //db.execSQL(ContactoDataSource.INSERT_CONTACTO_SCRIPT);
 
-        Log.e(TAG, "DB creada");
     }
 
     @Override

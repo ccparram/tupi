@@ -14,6 +14,7 @@ import com.ccparram.tupi.R;
 import com.ccparram.tupi.utility.Contacto;
 import com.ccparram.tupi.utility.ContactoAdapter;
 import com.ccparram.tupi.utility.ContactoDataSource;
+import com.ccparram.tupi.utility.ContactoDataSource.ColumnContacto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +28,7 @@ public class ContactosFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager lManager;
 
-    public ContactosFragment() {
-        // Constructor vacío
-    }
+    private ContactoDataSource ContactoDataSource;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,10 +39,10 @@ public class ContactosFragment extends Fragment {
 
         getActivity().setTitle(article);
 
-
+        ContactoDataSource = new ContactoDataSource(getContext());
         // Inicializar Contactos
         List items = new ArrayList();
-        Cursor filasContactoDB = RegistroFragment.getContactoDataSource().getAllContactos();
+        Cursor filasContactoDB = ContactoDataSource.getAllContactos();
         items = cursorToListItems(filasContactoDB);
 
         // Obtener el Recycler
@@ -57,6 +56,7 @@ public class ContactosFragment extends Fragment {
         // Crear un nuevo adaptador
         adapter = new ContactoAdapter(items);
         recycler.setAdapter(adapter);
+
 
 
         return rootView;
@@ -75,15 +75,16 @@ public class ContactosFragment extends Fragment {
 
         do {
             foto = cursorFilasContactoDB.getString(cursorFilasContactoDB
-                    .getColumnIndex(ContactoDataSource.ColumnContacto.FOTO_CONTACTO));
+                    //.getColumnIndex(ContactoDataSource.ColumnContacto.FOTO_CONTACTO));
+                    .getColumnIndex(ColumnContacto.FOTO_CONTACTO));
             nombre = cursorFilasContactoDB.getString(cursorFilasContactoDB
-                            .getColumnIndex(ContactoDataSource.ColumnContacto.NOMBRE_CONTACTO));
+                            .getColumnIndex(ColumnContacto.NOMBRE_CONTACTO));
             telefono = cursorFilasContactoDB.getString(cursorFilasContactoDB
-                    .getColumnIndex(ContactoDataSource.ColumnContacto.TELEFONO_CONTACTO));
+                    .getColumnIndex(ColumnContacto.TELEFONO_CONTACTO));
             email = cursorFilasContactoDB.getString(cursorFilasContactoDB
-                    .getColumnIndex(ContactoDataSource.ColumnContacto.EMAIL_CONTACTO));
+                    .getColumnIndex(ColumnContacto.EMAIL_CONTACTO));
             direccion = cursorFilasContactoDB.getString(cursorFilasContactoDB
-                    .getColumnIndex(ContactoDataSource.ColumnContacto.DIRECCION_CONTACTO));
+                    .getColumnIndex(ColumnContacto.DIRECCION_CONTACTO));
 
             // Añadimos un nuevo objeto DatosTabla al ArrayList.
             items.add(new Contacto(foto, nombre, telefono, email, direccion));

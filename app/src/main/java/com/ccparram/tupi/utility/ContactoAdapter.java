@@ -1,5 +1,6 @@
 package com.ccparram.tupi.utility;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import java.util.List;
 public class ContactoAdapter extends RecyclerView.Adapter<ContactoAdapter.ContactoViewHolder>{
 
     private List<Contacto> items;
+    final BitmapFactory.Options options = new BitmapFactory.Options();
 
     public static class ContactoViewHolder extends RecyclerView.ViewHolder {
         // Campos respectivos de un item
@@ -56,7 +58,14 @@ public class ContactoAdapter extends RecyclerView.Adapter<ContactoAdapter.Contac
 
     @Override
     public void onBindViewHolder(ContactoViewHolder viewHolder, int i) {
-        viewHolder.imagen.setImageBitmap(BitmapFactory.decodeFile(items.get(i).getImg()));
+
+
+        options.inSampleSize = 8;
+
+        Bitmap bm = BitmapFactory.decodeFile(items.get(i).getImg(),options);
+        viewHolder.imagen.setImageBitmap(bm);
+
+
         viewHolder.nombre.setText(items.get(i).getNombre());
         viewHolder.telefono.setText(items.get(i).getTelefono());
         viewHolder.email.setText(items.get(i).getEmail());
